@@ -1,0 +1,16 @@
+body {
+    background-color: wheat;
+  }
+  
+  body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpHdYx9EuMFGs0GaX-RfIKbb_8oLP0rp0bZg&usqp=CAU.gif");
+    background-repeat: no-repeat;
+    background-size: 1600px 980px;
+  }
+  
+  footer {
+    background-color: aliceblue;
+    color: black;
+    padding: 50px;
+    text-align: center;
+  }

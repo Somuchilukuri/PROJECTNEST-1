@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      background-image: url("https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80.gif");
+      background-repeat: no-repeat;
+      background-size: 1600px 980px;
+    }
+
+    nav {
+      background-color: black;
+      padding: 20px 30px;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      float: right;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-align: right;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    nav{
+      background-color: black;
+      padding: 30px 60px;
+    }
+
+    nav a:hover {
+      background-color: skyblue;
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 40px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+      background-color: white;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .forgot-password,
+    .signup-link {
+      margin-top: 10px;
+    }
+
+    .signup-link a {
+      color: blue;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div> 
+      <ul>
+        <li><a href="/signup">Signup</a></li>
+        <li><a href="/Login">Login</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/prediction">Prediction</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Login</h1>
+    <form onsubmit="Login_Form(); return false;">
+      <label for="username">Username</label>
+      <input type="text" id="uname" name="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="Password" name="password" required>
+
+      <input type="submit" value="Login">
+    </form>
+    <div class="forgot-password">
+      <a href="#">Forgot password?</a>
+    </div>
+    <div class="signup-link">
+      Don't have an account? Create one. <a href="/signup">Sign up</a>
+    </div>
+  </div>
+
+  <script>
+    function Login_Form() {
+      const uname = document.getElementById('uname').value;
+      const password = document.getElementById('Password').value;
+
+      const jsonData = {
+        uname: uname,
+        Password: password,
+      };
+
+      fetch('http://127.0.0.1:5000', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(jsonData),
+      })
+        .then(response => response.json())
+        .then(data => {
+          alert(data.message);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('Data failed to store in the backend.');
+        });
+    }
+  </script>
+</body>
+</html>

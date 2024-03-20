@@ -1,0 +1,13 @@
+Okaybody {
+    background-color: papayawhip;
+  }
+  
+  body {
+    background-image: url("https://img.freepik.com/free-photo/flat-lay-chat-bubbles-with-telephone-receiver-copy-space_23-2148796079.jpg");
+    background-repeat: no-repeat;
+    background-size: 1600px 980px;
+  }
+  
+  .contact_link a {
+    text-align: center;
+  }
